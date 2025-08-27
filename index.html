@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aman Khan – Work Report (Aug 17–26, 2025)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d12; --card:#121622; --ink:#eaf0ff; --muted:#a9b1c6; --accent:#6ea8fe; --accent2:#7df9c7;
+      --ring: 0 0 0 3px rgba(110,168,254,.25);
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%, rgba(110,168,254,.15), transparent 60%), radial-gradient(1000px 700px at -10% 10%, rgba(125,249,199,.12), transparent 60%), var(--bg);color:var(--ink)}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .title{display:flex;gap:14px;align-items:center}
+    .badge{font-size:12px;border:1px solid #2a3042;color:var(--muted);padding:4px 10px;border-radius:999px}
+    h1{font-size:28px;letter-spacing:.2px;margin:0}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap}
+    .input, .btn{background:#0f1320;border:1px solid #26314b;color:var(--ink);padding:10px 12px;border-radius:12px}
+    .input{min-width:260px}
+    .btn{cursor:pointer}
+    .btn:hover{border-color:#38507c}
+    .btn.primary{background:linear-gradient(135deg, rgba(110,168,254,.25), rgba(125,249,199,.18));border-color:#3b78f0}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+    .kpi{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));border:1px solid #233051;border-radius:16px;padding:14px}
+    .kpi h3{margin:0 0 6px 0;font-size:13px;color:var(--muted);font-weight:500}
+    .kpi p{margin:0;font-size:22px;font-weight:600}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:8px}
+    .card{grid-column:span 6; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.00)); border:1px solid #233051; border-radius:18px; padding:18px; transition:.2s transform, .2s border-color}
+    .card:hover{transform:translateY(-2px);border-color:#365a9a}
+    @media (max-width: 900px){ .card{grid-column:span 12} .summary{grid-template-columns:repeat(2,1fr)} }
+    .card h2{margin:0 0 6px 0;font-size:18px}
+    .muted{color:var(--muted);font-size:13px;margin:0}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{font-size:11px;border:1px solid #2b385b;color:#b8c3df;padding:4px 10px;border-radius:999px}
+    details{margin-top:12px;border-top:1px dashed #2a3454;padding-top:10px}
+    summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px; font-weight:600;}
+    summary::-webkit-details-marker{display:none}
+    .date{font-size:12px;color:#98a6c9;border:1px solid #2a3456;padding:3px 8px;border-radius:999px}
+    .list{margin:10px 0 0 0;padding:0 0 0 18px}
+    .list li{margin:8px 0}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .link{font-size:12px;color:#cfe1ff;text-decoration:none;border-bottom:1px dashed #3b78f0}
+    .sep{height:1px;background:linear-gradient(90deg, transparent, #233051 30%, #233051 70%, transparent);margin:16px 0}
+    .footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:12px}
+    .pill{background:#0f1422;border:1px solid #26314b;border-radius:999px;padding:6px 10px}
+    .note{font-size:12px;color:#b8c3df}
+    .sr{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div>
+          <h1>Aman Khan — Work Report</h1>
+          <p class="muted">Reporting Period: <strong>17–26 Aug 2025</strong> • Role: UI/UX & Content</p>
+        </div>
+        <span class="badge">Category Cards</span>
+      </div>
+      <div class="toolbar">
+        <label>
+          <span class="sr">Search</span>
+          <input id="search" class="input" placeholder="Search tasks, dates, keywords (e.g., HRMS, reel, onboarding)"/>
+        </label>
+        <button class="btn" id="toggle-all">Expand All</button>
+        <button class="btn primary" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </header>
+
+    <section class="summary" id="summary">
+      <div class="kpi"><h3>Total Deliverables</h3><p id="kpi-deliverables">—</p></div>
+      <div class="kpi"><h3>New UI Screens</h3><p>10 new (19–20 Aug) + updates</p></div>
+      <div class="kpi"><h3>Videos/Reels Edited</h3><p>5</p></div>
+      <div class="kpi"><h3>Pages/Sections Built</h3><p>Onboarding page + 6+ sections</p></div>
+    </section>
+
+    <div class="sep"></div>
+
+    <main class="grid" id="cards"></main>
+
+    <div class="footer">
+      <div>
+        <span class="pill">Prepared by: Aman Khan</span>
+        <span class="pill">Last updated: 26 Aug 2025</span>
+      </div>
+      <div class="note">Tip: Use the search bar to quickly filter tasks across all categories.</div>
+    </div>
+  </div>
+
+  <script>
+    const data = [
+      {
+        id: 'gubbins',
+        title: 'Gubbins Rider Onboarding & Website',
+        tags: ['UI', 'Website', 'Onboarding', 'Gubbins'],
+        color: '#6ea8fe',
+        days: [
+          { date: '17 Aug 2025', items: [
+            'Created the initial structure for the Gubbins Rider Onboarding Website.'
+          ]},
+          { date: '19 Aug 2025', items: [
+            'Completed design for Rider Onboarding Page UI and added 2 new sections.'
+          ], links: [
+            {label:'Gubbins Page (Figma – 19 Aug)', href:'https://www.figma.com/proto/Si2GrAVeTmB2I7I9n8o3ha/Gubbins-2.0-Website?node-id=144-2&t=4PmTqKU3f6fpn0Zr-1&scaling=scale-down-width&content-scaling=fixed&page-id=74%3A5&starting-point-node-id=144%3A2'}
+          ]},
+          { date: '20 Aug 2025', items: [
+            'Finalized Gubbins Onboarding Page with full content integration.'
+          ]},
+          { date: '21 Aug 2025', items: [
+            'Enhanced Rider Onboarding Page UI with new content and modifications.'
+          ], links: [
+            {label:'Gubbins Page (Figma – 21 Aug)', href:'https://www.figma.com/proto/Si2GrAVeTmB2I7I9n8o3ha/Gubbins-2.0-Website?node-id=144-2&t=ONjDCPrzspKbsVXd-1&scaling=scale-down-width&content-scaling=fixed&page-id=74%3A5&starting-point-node-id=144%3A2'}
+          ]},
+          { date: '22 Aug 2025', items: [
+            'Designed Gubbins 2.0 Home Page layout.',
+            'Created Rider Onboarding linking section on Home Page.'
+          ]},
+          { date: '23 Aug 2025', items: [
+            'Created a fresh UI layout for Gubbins 2.0 website.',
+            'Researched new designs and trends.',
+            'Wrote demo contents for Gubbins website.'
+          ]},
+          { date: '25 Aug 2025', items: [
+            'Researched Calculation Page improvements.'
+          ]},
+          { date: '26 Aug 2025', items: [
+            'Updated Calculation Page interface UI.'
+          ]}
+        ]
+      },
+      {
+        id: 'hrms',
+        title: 'HRMS App UI',
+        tags: ['UI', 'Mobile', 'Productivity'],
+        color: '#7df9c7',
+        days: [
+          { date: '17 Aug 2025', items: [
+            'Interface adjustments and groundwork on HRMS App UI.'
+          ]},
+          { date: '18 Aug 2025', items: [
+            'Continued HRMS App UI enhancements.'
+          ]},
+          { date: '19 Aug 2025', items: [
+            'Designed 5 new HRMS App UI screens.'
+          ], links: [
+            {label:'HRMS App (Figma)', href:'https://www.figma.com/design/pogQA9OG3lB37l1tIOYmeO/HRMS-APP--Copy--Aman?node-id=0-1&t=a6lJ3JANo56VJu1T-1'}
+          ]},
+          { date: '20 Aug 2025', items: [
+            'Created 5 new screens and added animations.'
+          ]},
+          { date: '21 Aug 2025', items: [
+            'Updated multiple screens and made improvements.'
+          ], links: [
+            {label:'HRMS App (Figma)', href:'https://www.figma.com/design/pogQA9OG3lB37l1tIOYmeO/HRMS-APP--Copy--Aman?node-id=0-1&t=a6lJ3JANo56VJu1T-1'}
+          ]},
+          { date: '22 Aug 2025', items: [
+            'Further screen changes and interface updates.'
+          ]},
+          { date: '25 Aug 2025', items: [
+            'UI refinements and tweaks.'
+          ]},
+          { date: '26 Aug 2025', items: [
+            'UI refinements continued.'
+          ]}
+        ]
+      },
+      {
+        id: 'content',
+        title: 'Video Editing & Content',
+        tags: ['Video', 'Reel', 'Editing', 'Content'],
+        color: '#caa0ff',
+        days: [
+          { date: '17 Aug 2025', items: [
+            'Edited Riders Birthday Celebration video.',
+            'Recorded and clicked Riders Birthday Celebration moments.'
+          ]},
+          { date: '18 Aug 2025', items: [
+            'Continued editing Birthday video and expanded visuals.'
+          ]},
+          { date: '19 Aug 2025', items: [
+            'Re-edited the Gubbins Tips & Tricks post with required changes.'
+          ]},
+          { date: '22 Aug 2025', items: [
+            'Created a meme video for Gubbins.'
+          ]},
+          { date: '25 Aug 2025', items: [
+            'Created a promotional reel for Gubbins.'
+          ]},
+          { date: '26 Aug 2025', items: [
+            'Re-edited Greentech Ganesh Chaturthi video.'
+          ]}
+        ]
+      },
+      {
+        id: 'marketing',
+        title: 'Marketing & Social Media',
+        tags: ['Marketing', 'WhatsApp', 'Copy'],
+        color: '#ffc782',
+        days: [
+          { date: '23 Aug 2025', items: [
+            'Drafted demo contents for the Gubbins website.'
+          ]},
+          { date: '26 Aug 2025', items: [
+            'Designed a WhatsApp Marketing Post for Gubbins.'
+          ]}
+        ]
+      },
+      {
+        id: 'research',
+        title: 'Research & Planning',
+        tags: ['Research', 'Planning'],
+        color: '#9ad0ff',
+        days: [
+          { date: '23 Aug 2025', items: [
+            'Researched new designs and trends for Gubbins 2.0.'
+          ]},
+          { date: '25 Aug 2025', items: [
+            'Researched Gubbins Calculation Page approach.'
+          ]}
+        ]
+      }
+    ];
+
+    const cardsEl = document.getElementById('cards');
+
+    function render(){
+      cardsEl.innerHTML = '';
+      const q = (document.getElementById('search').value || '').toLowerCase().trim();
+      let deliverableCount = 0;
+
+      for(const cat of data){
+        // filter by search across title, tags, and day items
+        const matches = (text)=> text.toLowerCase().includes(q);
+        const matchCat = !q || matches(cat.title) || cat.tags.some(t=>matches(t)) || cat.days.some(d=> matches(d.date) || d.items.some(i=>matches(i)));
+        if(!matchCat) continue;
+
+        const card = document.createElement('section');
+        card.className = 'card';
+
+        const h2 = document.createElement('h2');
+        h2.textContent = cat.title;
+        card.appendChild(h2);
+
+        const muted = document.createElement('p');
+        muted.className = 'muted';
+        muted.textContent = cat.tags.join(' • ');
+        card.appendChild(muted);
+
+        const chips = document.createElement('div');
+        chips.className = 'chips';
+        cat.tags.forEach(t=>{
+          const c = document.createElement('span');
+          c.className = 'chip';
+          c.textContent = t;
+          chips.appendChild(c);
+        });
+        card.appendChild(chips);
+
+        // details per date
+        cat.days.forEach(day=>{
+          const det = document.createElement('details');
+          det.dataset.cat = cat.id;
+
+          const sum = document.createElement('summary');
+          const dot = document.createElement('span');
+          dot.style.width = '10px';
+          dot.style.height = '10px';
+          dot.style.borderRadius = '50%';
+          dot.style.background = cat.color;
+          dot.style.display = 'inline-block';
+          dot.style.boxShadow = '0 0 0 3px rgba(255,255,255,.05)';
+          sum.appendChild(dot);
+
+          const label = document.createElement('span');
+          label.className = 'date';
+          label.textContent = day.date;
+          sum.appendChild(label);
+
+          const count = document.createElement('span');
+          count.className = 'muted';
+          count.style.marginLeft = '8px';
+          count.textContent = `• ${day.items.length} task${day.items.length>1?'s':''}`;
+          sum.appendChild(count);
+
+          det.appendChild(sum);
+
+          const ul = document.createElement('ul');
+          ul.className = 'list';
+          day.items.forEach(it=>{
+            const li = document.createElement('li');
+            li.textContent = it;
+            ul.appendChild(li);
+            deliverableCount++;
+          });
+          det.appendChild(ul);
+
+          if(day.links && day.links.length){
+            const links = document.createElement('div');
+            links.className = 'links';
+            day.links.forEach(l=>{
+              const a = document.createElement('a');
+              a.href = l.href; a.target = '_blank'; a.rel = 'noopener'; a.className = 'link'; a.textContent = l.label;
+              links.appendChild(a);
+            })
+            det.appendChild(links);
+          }
+
+          card.appendChild(det);
+        })
+
+        cardsEl.appendChild(card);
+      }
+
+      document.getElementById('kpi-deliverables').textContent = deliverableCount;
+    }
+
+    render();
+
+    document.getElementById('search').addEventListener('input', render);
+
+    let expanded = false;
+    document.getElementById('toggle-all').addEventListener('click', ()=>{
+      expanded = !expanded;
+      document.querySelectorAll('details').forEach(d=> d.open = expanded);
+      document.getElementById('toggle-all').textContent = expanded ? 'Collapse All' : 'Expand All';
+    });
+  </script>
+</body>
+</html>
